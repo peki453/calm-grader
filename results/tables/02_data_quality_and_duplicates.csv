@@ -1,0 +1,7 @@
+file,dataset,provider,model,original_rows,unique_response_ids,duplicate_rows_detected,successful_predictions,failed_or_invalid_unique_rows
+digiklausur_claude_predictions.csv,DigiKlausur,Anthropic,claude-haiku-5-5,646,646,0,646,0
+digiklausur_grok_predictions.csv,DigiKlausur,xAI,grok-4.3,646,646,0,646,0
+digiklausur_openai_predictions.csv,DigiKlausur,OpenAI,gpt-6.1-terra,646,646,0,646,0
+mohler_claude_predictions.csv,Mohler,Anthropic,claude-haiku-5-5,2444,2442,4,2442,0
+mohler_grok_predictions.csv,Mohler,xAI,grok-4.3,2442,2442,0,2442,0
+mohler_openai_predictions.csv,Mohler,OpenAI,gpt-6.1-terra,2453,2442,22,2442,0

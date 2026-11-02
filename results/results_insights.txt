@@ -1,0 +1,51 @@
+AUTOMATIC RESULTS NOTES
+========================================================================
+
+Important methodological note:
+For categorical metrics on Mohler, averaged human scores are aligned to the nearest score supported by the model. Raw MAE/RMSE use the original averaged human scores. Brier score and NLL use soft ordinal targets obtained by interpolating between adjacent supported classes.
+
+DATASET: DigiKlausur
+------------------------------------------------------------------------
+Best ordinal agreement: claude-haiku-5-5 (QWK=0.643).
+Lowest normalized expected-score MAE: gpt-6.1-terra (0.194).
+Best raw calibration by ECE: claude-haiku-5-5 (ECE=0.032).
+Best entropy-based error detection: claude-haiku-5-5 (AUROC=0.697, AUPRC=0.491).
+
+claude-haiku-5-5: accuracy=0.659, QWK=0.643, normalized expected MAE=0.219, ECE=0.032, mean confidence=0.649, entropy-error AUROC=0.697.
+gpt-6.1-terra: accuracy=0.642, QWK=0.604, normalized expected MAE=0.194, ECE=0.198, mean confidence=0.840, entropy-error AUROC=0.696.
+grok-4.3: accuracy=0.525, QWK=0.461, normalized expected MAE=0.261, ECE=0.200, mean confidence=0.721, entropy-error AUROC=0.647.
+
+Selective grading (claude-haiku-5-5): at ~70% coverage, normalized expected-score MAE=0.199 versus 0.219 at full coverage (absolute reduction=0.020).
+Selective grading (gpt-6.1-terra): at ~70% coverage, normalized expected-score MAE=0.160 versus 0.194 at full coverage (absolute reduction=0.034).
+Selective grading (grok-4.3): at ~70% coverage, normalized expected-score MAE=0.238 versus 0.261 at full coverage (absolute reduction=0.023).
+
+DATASET: Mohler
+------------------------------------------------------------------------
+Best ordinal agreement: gpt-6.1-terra (QWK=0.669).
+Lowest normalized expected-score MAE: gpt-6.1-terra (0.147).
+Best raw calibration by ECE: claude-haiku-5-5 (ECE=0.119).
+Best entropy-based error detection: gpt-6.1-terra (AUROC=0.877, AUPRC=0.854).
+
+claude-haiku-5-5: accuracy=0.282, QWK=0.584, normalized expected MAE=0.243, ECE=0.119, mean confidence=0.326, entropy-error AUROC=0.822.
+gpt-6.1-terra: accuracy=0.489, QWK=0.669, normalized expected MAE=0.147, ECE=0.185, mean confidence=0.674, entropy-error AUROC=0.877.
+grok-4.3: accuracy=0.195, QWK=0.471, normalized expected MAE=0.312, ECE=0.225, mean confidence=0.391, entropy-error AUROC=0.840.
+
+Selective grading (claude-haiku-5-5): at ~70% coverage, normalized expected-score MAE=0.223 versus 0.243 at full coverage (absolute reduction=0.020).
+Selective grading (gpt-6.1-terra): at ~70% coverage, normalized expected-score MAE=0.112 versus 0.147 at full coverage (absolute reduction=0.035).
+Selective grading (grok-4.3): at ~70% coverage, normalized expected-score MAE=0.304 versus 0.312 at full coverage (absolute reduction=0.008).
+
+PAIRWISE COMPARISONS
+------------------------------------------------------------------------
+DigiKlausur: claude-haiku-5-5 vs gpt-6.1-terra — accuracy difference A-B=0.017 (95% bootstrap CI -0.019 to 0.050); expected-MAE difference A-B=0.051 (95% bootstrap CI 0.032 to 0.070).
+DigiKlausur: claude-haiku-5-5 vs grok-4.3 — accuracy difference A-B=0.135 (95% bootstrap CI 0.087 to 0.181); expected-MAE difference A-B=-0.084 (95% bootstrap CI -0.109 to -0.058).
+DigiKlausur: gpt-6.1-terra vs grok-4.3 — accuracy difference A-B=0.118 (95% bootstrap CI 0.074 to 0.161); expected-MAE difference A-B=-0.135 (95% bootstrap CI -0.168 to -0.102).
+Mohler: claude-haiku-5-5 vs gpt-6.1-terra — accuracy difference A-B=-0.206 (95% bootstrap CI -0.227 to -0.188); expected-MAE difference A-B=0.480 (95% bootstrap CI 0.451 to 0.507).
+Mohler: claude-haiku-5-5 vs grok-4.3 — accuracy difference A-B=0.088 (95% bootstrap CI 0.073 to 0.103); expected-MAE difference A-B=-0.345 (95% bootstrap CI -0.370 to -0.321).
+Mohler: gpt-6.1-terra vs grok-4.3 — accuracy difference A-B=0.294 (95% bootstrap CI 0.275 to 0.313); expected-MAE difference A-B=-0.825 (95% bootstrap CI -0.857 to -0.793).
+
+Suggested Results-section structure:
+1. Predictive performance across models and datasets.
+2. Probabilistic calibration and over/under-confidence.
+3. Relationship between uncertainty and grading error.
+4. Selective grading / coverage-risk trade-off.
+5. Per-question variation and model disagreement.
